@@ -41,6 +41,3 @@ On Windows with MinGW, use `gcc file.c -o file.exe` and run `file.exe`.
 - These programs were written as academic practice exercises in C.
 - Compiled binaries (`.exe`) are included in the repo for convenience but are typically not required — see Building & Running above to compile from source.
 
-## License
-
-No license specified. Feel free to check with the repository owner before reuse.
