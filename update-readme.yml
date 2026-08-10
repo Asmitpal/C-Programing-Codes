@@ -1,0 +1,74 @@
+name: Update README file list
+
+on:
+  push:
+    branches:
+      - main
+      - master
+
+# Let the workflow push the updated README back to the repo
+permissions:
+  contents: write
+
+jobs:
+  update-readme:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Generate file list
+        run: |
+          # List all tracked files except README.md and .github internals,
+          # sorted, grouped as a simple markdown list with folders as sub-headings.
+          find . -type f \
+            -not -path "./.git/*" \
+            -not -path "./.github/*" \
+            -not -name "README.md" \
+            -printf "%P\n" | sort | \
+          awk -F/ '
+            {
+              if (NF > 1) {
+                dir = $1
+                if (dir != prevdir) {
+                  print ""
+                  print "**" dir "/**"
+                  prevdir = dir
+                }
+                file = $0
+                sub("^" dir "/", "", file)
+                print "- " file
+              } else {
+                if (prevdir != "") {
+                  print ""
+                  prevdir = ""
+                }
+                print "- " $0
+              }
+            }
+          ' > filelist.tmp
+
+          # Replace everything between the markers with the freshly generated list,
+          # keeping the markers themselves in place as anchors for next time.
+          awk '
+            BEGIN { while ((getline line < "filelist.tmp") > 0) list = list line "\n" }
+            /<!-- FILE-LIST:START -->/ { print; print ""; printf "%s", list; skip=1; next }
+            /<!-- FILE-LIST:END -->/ { skip=0 }
+            !skip { print }
+          ' README.md > README.tmp && mv README.tmp README.md
+
+          rm -f filelist.tmp
+
+      - name: Commit and push if changed
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          if ! git diff --quiet -- README.md; then
+            git add README.md
+            git commit -m "docs: auto-update file list in README [skip ci]"
+            git push
+          else
+            echo "No changes to README.md"
+          fi
