@@ -128,7 +128,7 @@ void displaySparse(struct Sparse s[], int count)
 }
 int main()
 {
-    printf("NAME : ASMIT PAL\nROLL NO : 25052035   Section : CS48\n");
+    printf("NAME : Asmit Pal\nROLL NO : 25052035   Section : CS48\n");
     int a[MAX][MAX];
     int t[MAX][MAX];
     struct Sparse s[MAX];
