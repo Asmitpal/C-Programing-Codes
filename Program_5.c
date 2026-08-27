@@ -101,7 +101,7 @@ void delete_pos (int pos)
 int main() {
     int choice, val;
     while(1) {
-        printf("-- Linked List Insertion Menu --\n");
+        printf("-- Linked List Insertion and Deletion Menu --\n");
         printf("1. Insert at begining\n");
         printf("2. Delete at begining\n");
         printf("3. Insert at position\n");
