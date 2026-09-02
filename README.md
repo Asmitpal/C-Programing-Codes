@@ -12,6 +12,7 @@ This workspace contains a set of C practice programs covering queues, linked lis
 | `Program_3.c` | Creates a singly linked list from user input and displays the list. |
 | `Program_4.c` | Menu-driven singly linked list that supports insertion at the beginning, end, or a specified position. |
 | `Program_5.c` | Linked list program that allows insertion and deletion operations at the beginning or at a given position. |
+| `Doubled_linked_list.c` | Menu-driven doubly linked list with insertion and deletion at the beginning, end, or a specified position, plus forward and backward display. |
 | `Extra_class_problem.c` | Sparse matrix program that checks whether a matrix is sparse, displays it, and computes transpose using both a 2D matrix and a compact sparse structure. |
 
 ## Requirements
@@ -51,6 +52,11 @@ gcc Program_4.c -o program4
 ```bash
 gcc Program_5.c -o program5
 ./program5
+```
+
+```bash
+gcc Doubled_linked_list.c -o doubled_linked_list
+./doubled_linked_list
 ```
 
 ```bash
