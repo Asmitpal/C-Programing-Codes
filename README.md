@@ -6,6 +6,7 @@ This workspace contains a set of C practice programs covering queues, linked lis
 
 | File | Description |
 |------|-------------|
+| `Stack.c` | Menu-driven array-based stack with push, pop, display, and overflow/underflow checks. |
 | `Circulae_Queue.c` | Circular queue implementation with enqueue, dequeue, peek, display, and menu-driven operations. |
 | `linear_Queue.c` | Linear queue implementation using a simple array-based queue with enqueue, dequeue, and display. |
 | `Program_2.c` | Reads an integer and prints its 32-bit binary form, along with each byte's decimal and binary representation. |
@@ -23,6 +24,11 @@ This workspace contains a set of C practice programs covering queues, linked lis
 ## Building and Running
 
 Each file is a standalone C program. Compile them individually as follows:
+
+```bash
+gcc Stack.c -o stack
+./stack
+```
 
 ```bash
 gcc Circulae_Queue.c -o circular_queue
@@ -65,6 +71,11 @@ gcc Extra_class_problem.c -o extra_class_problem
 ```
 
 On Windows with MinGW, the same commands use `.exe` output files:
+
+```powershell
+gcc Stack.c -o Stack.exe
+.\Stack.exe
+```
 
 ```powershell
 gcc Program_4.c -o Program_4.exe
