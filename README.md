@@ -7,8 +7,10 @@ This workspace contains a set of C practice programs covering queues, linked lis
 | File | Description |
 |------|-------------|
 | `Stack.c` | Menu-driven array-based stack with push, pop, display, and overflow/underflow checks. |
+| `Stack_using_LinkedList.c` | Menu-driven stack implementation using a linked list with push, pop, and display operations. |
 | `Circulae_Queue.c` | Circular queue implementation with enqueue, dequeue, peek, display, and menu-driven operations. |
 | `linear_Queue.c` | Linear queue implementation using a simple array-based queue with enqueue, dequeue, and display. |
+| `Queue_using_LinkedList.c` | Menu-driven queue implementation using a linked list with enqueue, dequeue, and display operations. |
 | `Program_2.c` | Reads an integer and prints its 32-bit binary form, along with each byte's decimal and binary representation. |
 | `Program_3.c` | Creates a singly linked list from user input and displays the list. |
 | `Program_4.c` | Menu-driven singly linked list that supports insertion at the beginning, end, or a specified position. |
@@ -31,6 +33,11 @@ gcc Stack.c -o stack
 ```
 
 ```bash
+gcc Stack_using_LinkedList.c -o stack_linked_list
+./stack_linked_list
+```
+
+```bash
 gcc Circulae_Queue.c -o circular_queue
 ./circular_queue
 ```
@@ -38,6 +45,11 @@ gcc Circulae_Queue.c -o circular_queue
 ```bash
 gcc linear_Queue.c -o linear_queue
 ./linear_queue
+```
+
+```bash
+gcc Queue_using_LinkedList.c -o queue_linked_list
+./queue_linked_list
 ```
 
 ```bash
